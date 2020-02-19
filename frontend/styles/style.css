@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #202124;
+    background-color: #f4f4f4;
+}
+
+body .wrapper {
+    width: 100%;
+    max-width: 425px;
+    margin: 150px auto 0 auto;
+    text-align: center;
+    padding: 50px 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+body .wrapper div#sign {
+    padding: 0;
+}
+
+body .wrapper div#form form {
+    display: flex;
+    flex-direction: column;
+}
+
+body .wrapper div#form input#form-username,
+body .wrapper div#form input#form-password {
+    border: none;
+    border-bottom: 1px solid #000;
+    background-color: #f4f4f4;
+    letter-spacing: 0.5px;
+    font-size: 17px;
+    font-weight: 300;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+body .wrapper div#form input#form-submit {
+    background: #ff425b;
+    border: 0;
+    font-size: 15px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    padding: 10px 25px;
+    color: white;
+    margin: 10px 0;
+    transition: 0.2s background;
+}
+
+body .wrapper div#form input#form-submit:hover {
+    border: 1px solid #ff425b;
+    background-color: white;
+    color: #ff425b;
+}
+
+body .wrapper div#form input#remember-me {
+    display: inline-block;
+    margin: 20px 0;
+}
+
+body .wrapper #form #form-submit {
+    margin: 0 auto;
+}
+
+body .wrapper #form-buttons a {
+    display: block;
+    color: #ff6060;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 5px;
+}
