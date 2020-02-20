@@ -80,13 +80,17 @@ body {
     text-decoration: underline;
 }
 
+.courses {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 .card {
-    width: 443px;
-    height: 245px;
+    width: 47%;
     background-color: #f4f4f4;
-    margin-right: 50px;
     margin-bottom: 50px;
-    flex-grow: 1;
+    border: 1px solid transparent;
 }
 
 .card:hover {
@@ -110,9 +114,5 @@ body {
 
 .enrollment {
     padding: 0 25px;
-}
-
-.courses {
-    display: flex;
-    flex-wrap: wrap;
+    margin-bottom: 30px;
 }
