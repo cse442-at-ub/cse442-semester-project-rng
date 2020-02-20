@@ -79,7 +79,7 @@ body {
 }
 
 .discussion-card {
-    background-color: #fdcb6e;
+    background-color: #ececec;
     border: 1px solid rgb(190, 190, 190);
     border-radius: 5px;
     padding: 50px 50px;
@@ -119,5 +119,74 @@ body {
     margin-left: auto;
 }
 
-.disucssion-content {
+.discussion-content {
+    margin-top: 25px;
+}
+
+.comment-textbox-card {
+    margin-top: 50px;
+    background-color: #ececec;
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 5px;
+    padding: 50px 50px 25px 50px;
+}
+
+.comment-textbox {
+    width: 100%;
+    height: 125px;
+    resize: none;
+    padding: 10px 10px 10px 10px;
+}
+
+.comment-bottom-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+.small-btn {
+    background-color: #0984e3;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+}
+
+.small-btn:hover {
+    background-color: #008bf5;
+    color: #fff;
+}
+
+.comment-section {
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    border-bottom: 1px solid #000;
+}
+
+.comment-author {
+    display: inline-block;
+    font: 12px;
+    margin-left: 10px;
+}
+
+.comment-timestamp {
+    font: 10px;
+    font-weight: 300;
+    margin-left: auto;
+}
+
+.comment-card {
+    margin-top: 50px;
+    background-color: #ececec;
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 5px;
+    padding: 25px 50px 25px 50px;
+}
+
+.comment-content {
+    margin-top: 25px;
 }
