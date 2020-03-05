@@ -11,15 +11,22 @@ module.exports.activateUser = async (req, res) => {
   const connection = await mysql.getConnection();
 
   const [
-    rows
+    codeQueryResult
   ] = await connection.execute(
     'SELECT * FROM `activation_codes` where `activation_code` = ?',
     [code]
   );
 
-  if (rows.length === 0) {
+  if (codeQueryResult.length === 0) {
     return res.send('Incorrect Activation Code');
   }
 
-  return res.json(rows[0]);
+  const userID = codeQueryResult[0].user_id;
+
+  await connection.execute(
+    'UPDATE `rng_users` SET  `verified` = ? WHERE `user_id`= ? ',
+    [true, userID]
+  );
+
+  return res.json(codeQueryResult[0]);
 };
