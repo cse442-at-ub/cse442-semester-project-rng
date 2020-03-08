@@ -18,3 +18,12 @@ body {
   border-radius: 25px;
   text-align: center;
 }
+
+.fail {
+  width: 300px;
+  padding: 50px 50px;
+  background-color: #ff7c73;
+  margin: 50px auto;
+  border-radius: 25px;
+  text-align: center;
+}
