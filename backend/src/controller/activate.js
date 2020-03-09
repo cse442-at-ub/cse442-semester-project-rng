@@ -3,9 +3,9 @@ const mysql = require('../database/mysql');
 module.exports.activateUser = async (req, res) => {
   const code = req.query.code;
   if (!code) {
-    return res.send(
-      'Please use the link provided in the email that was sent to you'
-    );
+    return res.render('activate', {
+      successful: false
+    });
   }
 
   const connection = await mysql.getConnection();
@@ -18,7 +18,9 @@ module.exports.activateUser = async (req, res) => {
   );
 
   if (codeQueryResult.length === 0) {
-    return res.send('Incorrect Activation Code');
+    return res.render('activate', {
+      successful: false
+    });
   }
 
   const userID = codeQueryResult[0].user_id;
@@ -28,5 +30,7 @@ module.exports.activateUser = async (req, res) => {
     [true, userID]
   );
 
-  return res.json(codeQueryResult[0]);
+  return res.render('activate', {
+    successful: true
+  });
 };
