@@ -4,6 +4,7 @@ const path = require('path');
 require('dotenv').config();
 require('./database/mysql');
 const activateRoute = require('./routes/activate');
+const registerRoute = require('./routes/register');
 
 const PORT = 3000;
 const app = express();
@@ -20,6 +21,7 @@ app.set('view engine', 'ejs');
 console.log(__dirname)
 
 app.use(activateRoute);
+app.use(registerRoute);
 
 app.listen(PORT);
 console.log('Listening on port ' + PORT);
