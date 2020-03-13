@@ -2,67 +2,41 @@
 <html>
 
     <head>
-        <link href="./styles/classroom.css" rel="stylesheet">
+        <link href="./styles/style.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
         <title>Classroom</title>
     </head>
 
     <body>
-        <div class="header">
-            <div class="wrapper">
-                <div class="user-info">
-                    John Doe
-                    <div class="school">
-                        State University of New York at Buffalo
-                    </div>
-                </div>
-                <div class="back-button">
-                    <a href="./index.html">Back</a>
-                </div>
-            </div>
-        </div>
-        <div id="main content" class="wrapper">
-            <div class="Registration parameters">
-                <form>
-                    <fieldset>
-                        <p>
-                            <label>First Name : </label>
-                            <input type = "text"
-                                    id = "myFirst" />
-                        </p>
+        <div class="wrapper">
+            <div id="form-wrapper">
+                <h1>Register now</h1>
+                <form action="/register" method="POST">
+                    <label for="myFirst">First Name : </label><br/>
+                    <input type = "text" id = "first_name"><br/>
 
-                        <p>
-                            <label>Last Name : </label>
-                            <input type = "text"
-                                    id = "myLast" />
-                        </p>
+                    <label for="myLast">Last Name : </label><br/>
+                    <input type = "text" id = "last_name"><br/>
 
-                        <p>
-                            <label>Email Address : </label>
-                            <input type = "text"
-                                    id = "myEmail" />
-                        </p>
+                    <label for="myFirst">Email Address : </label><br/>
+                    <input type = "email" id = "email"><br/>
 
-                        <p>
-                            <label>Password : </label>
-                            <input type = "text"
-                                    id = "myPassword" />
-                        </p>
+                    <label for="myPassword">Password : </label><br/>
+                    <input type = "password" id = "password"><br/>
 
-                        <p>
-                            <label>Confirm Password : </label>
-                            <input type = "text"
-                                    id = "MyConPassword" />
-                        </p>
+                    <label for="conPassword">Confirm Password : </label><br/>
+                    <input type = "password" id = "confirm_password"><br/>
 
-                        <p>
-                            <label>University : </label>
-                            <select id = "myList">
-                                
-                            </select>
-                        </p>
-                    </fieldset>
+                    <label for="myUni">University : </label>
+                    <input type="text" id = "school">
+
+                    <input type="radio" id="Student" name="user_type" value="Student">
+                    <label for="student">Student</label><br>
+                    <input type="radio" id="Instructor" name="user_type" value="Instructor">
+                    <label for="instructor">Instructor</label><br>
+
+                    <input id="form-submit" type="button" value="register">
                 </form>
 
                 
