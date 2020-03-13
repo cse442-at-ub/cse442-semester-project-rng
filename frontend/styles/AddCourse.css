@@ -1,0 +1,119 @@
+@media (min-width: 0px) {
+    /* Mobile */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        color: #202124;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+    }
+
+    body .wrapper {
+        width: 100%;
+        text-align: center;
+        padding: 50px 15px;
+        margin-top: 100px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    body .wrapper #form-wrapper form {
+        display: flex;
+        flex-direction: column;
+        margin: 25px 10px;
+    }
+
+    body .wrapper #form-wrapper input#form-username{
+        border: none;
+        border-bottom: 0.1em solid #222;
+        background-color: #f4f4f4;
+        letter-spacing: 0.5px;
+        font-size: 1em;
+        text-align: center;
+        font-weight: 300;
+        margin: 1em 0;
+        color: #777;
+    }
+
+    body .wrapper #form-wrapper input#form-username:focus{
+        color: #222;
+    }
+
+    body .wrapper #form-wrapper input#form-submit {
+        background: #06253b;
+        border: 0;
+        font-size: 15px;
+        text-transform: uppercase;
+        border-radius: 3px;
+        color: white;
+        transition: 0.5s all;
+        width: 100%;
+        line-height: 27px;
+        border: 1px solid #06253b;
+        font-family: 'Anton';
+        letter-spacing: 1px;;
+    }
+
+    body .wrapper #form-wrapper input#form-submit:hover {
+        border: 1px solid #06253b;
+        background-color: transparent;
+        color: #06253b;
+        cursor: pointer;
+    }
+
+    body .wrapper #form-wrapper #form-submit {
+        margin: 0 auto;
+    }
+
+}
+
+@media (min-width: 481px) {
+    /* Small Tablet */
+
+    body .wrapper div#form form {
+        margin: 25px 25px;
+    }
+    body .wrapper {
+        max-width: 425px;
+    }
+
+}
+
+@media (min-width: 768px) {
+    /* Tablet */
+
+    body .wrapper div#form input#form-username{
+        font-size: 17px;
+    }
+
+}
+
+@media (min-width: 1030px) {
+    /* Small Desktop */
+
+    body .wrapper div#sign {
+        padding: 0;
+    }
+
+    body .wrapper div#form input#form-submit {
+        padding: 10px 25px;
+        margin: 10px 0;
+    }
+
+}
+
+@media (min-width: 1240px) {
+    /* Desktop */
+
+}
+
+@media (min-width: 1440px) {
+    /* Large Desktop */
+
+}
