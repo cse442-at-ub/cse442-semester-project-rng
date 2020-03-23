@@ -15,7 +15,7 @@ module.exports.registerUser = async (req, res) => {
   bcrypt.hash(password, saltRounds, async function(err, hash) {
     await connection.execute(
       `INSERT INTO rng_courses (course_instructor, course_name, course_term, ) 
-                  VALUES ("${name}" , "${term}")`
+                  VALUES ("${instructor}" , "${name}" , "${term}")`
     );
   });
 
