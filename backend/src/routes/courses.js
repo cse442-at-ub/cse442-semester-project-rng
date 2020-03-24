@@ -1,8 +1,8 @@
 const express = require('express');
-const RegisterController = require('../controller/register');
+const CoursesController = require('../controller/controller');
 const router = express.Router();
 
-router.post('/course-create', RegisterController.registerUser);
+router.post('/courses/create', CoursesController.createCourse);
 
 router.get('/courses', (req, res) => {
   res.render('courses');
