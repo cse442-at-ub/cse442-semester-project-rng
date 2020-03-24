@@ -2,8 +2,6 @@ const mysql = require('../database/mysql');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 
-const saltRounds = 10;
-
 module.exports.createCourse = async (req, res) => {
   //TODO: Fill with actuall id's once the form has been created;
   const instructor = req.body.instructor;
