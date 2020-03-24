@@ -25,7 +25,7 @@ module.exports.login = async (req, res) => {
       return res.send('Your password is incorrect');
     }
 
-    req.session.user = user.user_id;
+    req.session.user = user;
 
     return res.send('You\'ve successfully logged in')
   });
