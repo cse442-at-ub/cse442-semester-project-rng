@@ -7,6 +7,7 @@ require('./database/mysql');
 const activateRoute = require('./routes/activate');
 const registerRoute = require('./routes/register');
 const loginRoute = require('./routes/login');
+const coursesRoute = require('./routes/courses');
 
 const PORT = 3000;
 const app = express();
@@ -36,6 +37,7 @@ app.set('view engine', 'ejs');
 app.use(activateRoute);
 app.use(registerRoute);
 app.use(loginRoute);
+app.use(coursesRoute);
 
 app.listen(PORT);
 console.log('Listening on port ' + PORT);
