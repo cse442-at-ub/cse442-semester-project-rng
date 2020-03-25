@@ -8,6 +8,7 @@ const activateRoute = require('./routes/activate');
 const registerRoute = require('./routes/register');
 const loginRoute = require('./routes/login');
 const coursesRoute = require('./routes/courses');
+const logoutRoute = require('./routes/logout');
 
 const PORT = 3000;
 const app = express();
@@ -38,6 +39,7 @@ app.use(activateRoute);
 app.use(registerRoute);
 app.use(loginRoute);
 app.use(coursesRoute);
+app.use(logoutRoute)
 
 app.listen(PORT);
 console.log('Listening on port ' + PORT);
