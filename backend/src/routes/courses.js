@@ -10,7 +10,11 @@ router.get('/courses/create', (req, res) => {
 })
 
 router.get('/courses', auth.isLoggedIn, (req, res) => {
-  res.render('courses');
+  const user = req.session.user;
+  const isInstructor = user.user_type === 'Instructor';
+  res.render('courses', {
+    isInstructor
+  });
 })
 
 module.exports = router;
