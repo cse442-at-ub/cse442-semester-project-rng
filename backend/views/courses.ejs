@@ -31,68 +31,28 @@
         </div>
         <div id="main-content">
             <div class="wrapper">
+                <% if(isInstructor) { %>
                 <div class="title">
-                    Courses
+                    Instructor Courses
                 </div>
                 <div class="courses">
-                    <div class="card" onclick="window.location.href = './classroom.html';">
+                    <% for(let i = 0; i < courses.length; i++) { %>
+                    <div class="card">
                         <div class="card-title">
-                            Software Engineering
+                            <%= courses[i].course_name %>
                         </div>
                         <div class="term">
-                            Term: Spring 2020
+                            Term: <%= courses[i].course_term %>
                         </div>
-                        <div class="instructors">
-                            Instructors: John Doe, John Smith, Michael Smith, Adam Smith, Sam Smith
-                        </div>
-                        <div class="enrollment">
-                            Total Enrollment: 133
+                        <div class="access-code">
+                            Course Code: <%= courses[i].course_code %>
                         </div>
                     </div>
-                    <div class="card" onclick="window.location.href = './classroom.html';">
-                        <div class="card-title">
-                            Software Engineering
-                        </div>
-                        <div class="term">
-                            Term: Spring 2020
-                        </div>
-                        <div class="instructors">
-                            Instructors: John Doe, John Smith, Michael Smith, Adam Smith, Sam Smith
-                        </div>
-                        <div class="enrollment">
-                            Total Enrollment: 133
-                        </div>
-                    </div>
-                    <div class="card" onclick="window.location.href = './classroom.html';">
-                        <div class="card-title">
-                            Software Engineering
-                        </div>
-                        <div class="term">
-                            Term: Spring 2020
-                        </div>
-                        <div class="instructors">
-                            Instructors: John Doe, John Smith, Michael Smith, Adam Smith,
-                            Sam Smith
-                        </div>
-                        <div class="enrollment">
-                            Total Enrollment: 133
-                        </div>
-                    </div>
-                    <div class="card" onclick="window.location.href = './classroom.html';">
-                        <div class="card-title">
-                            Software Engineering
-                        </div>
-                        <div class="term">
-                            Term: Spring 2020
-                        </div>
-                        <div class="instructors">
-                            Instructors: John Doe, John Smith, Michael
-                            Smith, Adam Smith, Sam Smith
-                        </div>
-                        <div class="enrollment">
-                            Total Enrollment: 133
-                        </div>
-                    </div>
+                    <% } %>
+                </div>
+                <% } %>
+                <div class="title">
+                    Enrolled Courses
                 </div>
             </div>
         </div>
