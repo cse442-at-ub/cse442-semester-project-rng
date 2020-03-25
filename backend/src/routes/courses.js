@@ -13,7 +13,8 @@ router.get('/courses', auth.isLoggedIn, (req, res) => {
   const user = req.session.user;
   const isInstructor = user.user_type === 'Instructor';
   res.render('courses', {
-    isInstructor
+    isInstructor,
+    school: user.school
   });
 })
 
