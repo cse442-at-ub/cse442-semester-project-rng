@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="./styles/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+        <title>Course Creation</title>
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <div id="form-wrapper">
+                <h1>Create your Course</h1>
+                <form action="/course-create" method="POST">
+                    <label for="form-instructor">Instructor: </label><br/>
+                    <input id="form-instructor" type="text" name="instructor"><br/>
+                    
+                    <label for="form-name">Name of course: </label><br/>
+                    <input id="form-name" type="text" name="name"><br/>
+                   
+                    <label for="form-term">Term: </label><br/>
+                    <input id="form-term" type="text" name="term"><br/>
+                   
+                    <input id="form-submit" type="submit" value="Submit">
+                   </form> 
+            </div>
+        </div>
+    </body>
+
+</html>
