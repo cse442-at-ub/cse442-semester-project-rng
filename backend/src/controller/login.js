@@ -27,6 +27,6 @@ module.exports.login = async (req, res) => {
 
     req.session.user = user;
 
-    return res.send('You\'ve successfully logged in')
+    return res.redirect('/courses');
   });
 }
