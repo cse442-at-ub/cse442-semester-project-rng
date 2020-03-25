@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="./styles/normalize.css">
+        <link rel="stylesheet" type="text/css" href="./styles/courses.css">
+
+        <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+        <title>Courses</title>
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="wrapper">
+                <div class="user-info">
+                    RNG
+                    <div class="school">
+                        <%= school %>
+                    </div>
+                </div>
+                <% if(isInstructor) { %>
+                <div class="new-class" type="button">
+                    <a href="/courses/create">Create Course</a>
+                </div>
+                <% } %>
+                <div class="new-class" type="button">
+                    <a href="/courses/add">Add a Course</a>
+                </div>
+            </div>
+        </div>
+        <div id="main-content">
+            <div class="wrapper">
+                <% if(isInstructor) { %>
+                <div class="title">
+                    Instructor Courses
+                </div>
+                <div class="courses">
+                    <% for(let i = 0; i < courses.length; i++) { %>
+                    <div class="card">
+                        <div class="card-title">
+                            <%= courses[i].course_name %>
+                        </div>
+                        <div class="term">
+                            Term: <%= courses[i].course_term %>
+                        </div>
+                        <div class="access-code">
+                            Course Code: <%= courses[i].course_code %>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+                <% } %>
+                <div class="title">
+                    Enrolled Courses
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

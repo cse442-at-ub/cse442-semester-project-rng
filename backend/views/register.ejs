@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link href="./styles/register.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+        <title>Register</title>
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <div id="form-wrapper">
+                <h1>Register now</h1>
+                <form action="/register" method="POST">
+                    <label for="myFirst">First Name : </label><br />
+                    <input type="text" id="first_name" name="first_name"><br />
+
+                    <label for="myLast">Last Name : </label><br />
+                    <input type="text" id="last_name" name="last_name"><br />
+
+                    <label for="myFirst">Email Address : </label><br />
+                    <input type="email" id="email" name="email"><br />
+
+                    <label for="myPassword">Password : </label><br />
+                    <input type="password" id="password" name="password"><br />
+
+                    <label for="conPassword">Confirm Password : </label><br />
+                    <input type="password" id="confirm_password" name="confirm_password"><br />
+
+                    <label for="myUni">University : </label>
+                    <input type="text" id="school" name="school">
+
+                    <input type="radio" id="Student" name="user_type" value="Student">
+                    <label for="student">Student</label><br>
+                    <input type="radio" id="Instructor" name="user_type" value="Instructor">
+                    <label for="instructor">Instructor</label><br>
+
+                    <input id="form-submit" type="submit" value="register">
+                </form>
+
+
+            </div>
+        </div>
+    </body>
+
+</html>
