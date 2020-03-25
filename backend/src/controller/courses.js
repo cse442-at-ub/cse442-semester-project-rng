@@ -17,7 +17,7 @@ module.exports.createCourse = async (req, res) => {
                 VALUES ("${instructorID}" , "${name}" , "${term}")`
   );
 
-  res.send(`Inserted new course into DB`);
+  res.redirect('/courses')
 };
 
 module.exports.enrollCourse = (req, res) => {
