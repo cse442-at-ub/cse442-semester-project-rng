@@ -3,9 +3,13 @@ const auth = require('../auth/auth');
 const CoursesController = require('../controller/courses');
 const router = express.Router();
 
-router.post('/courses/create', CoursesController.createCourse);
+router.post('/courses/create', auth.isLoggedIn, CoursesController.createCourse);
 
-router.get('/courses/create', (req, res) => {
+router.get('/courses/create', auth.isLoggedIn, (req, res) => {
+  const isInstructor = user.user_type === 'Instructor';
+  if (!isInstructor) {
+    return res.send('You need to be an instructor to access this page')
+  }
   res.render('create_course')
 })
 

@@ -3,7 +3,11 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 
 module.exports.createCourse = async (req, res) => {
-  //TODO: Fill with actuall id's once the form has been created;
+  const isInstructor = user.user_type === 'Instructor';
+  if (!isInstructor) {
+    return res.send('You need to be an instructor to perform this action')
+  }
+
   const instructor = req.body.instructor;
   const name = req.body.name;
   const term = req.body.term;
