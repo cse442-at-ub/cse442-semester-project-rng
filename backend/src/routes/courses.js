@@ -15,6 +15,13 @@ router.get('/courses/create', auth.isLoggedIn, (req, res) => {
   res.render('create_course')
 })
 
+router.post('/courses/enroll', auth.isLoggedIn, CoursesController.enrollCourse);
+
+router.get('/courses/enroll', auth.isLoggedIn, (req, res) => {
+  
+  res.render('enroll_course')
+})
+
 router.get('/courses', auth.isLoggedIn, async (req, res) => {
   const user = req.session.user;
   const isInstructor = user.user_type === 'Instructor';

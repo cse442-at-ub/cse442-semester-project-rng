@@ -21,5 +21,28 @@ module.exports.createCourse = async (req, res) => {
 };
 
 module.exports.enrollCourse = (req, res) => {
+  const user = req.session.user;
+  const ID = user.user_id;
+  const code = req.body.code;
 
+  const [
+    userQueryResult
+  ] = await connection.execute(
+    'SELECT * FROM `rng_courses` where `course_code` = ?',
+    [code]
+  );
+
+  if (userQueryResult.length === 0) {
+    return res.send('There is no course with that code');
+  }
+
+  const course_id = userQueryResult[0];
+
+  const connection = await mysql.getConnection();
+  await connection.execute(
+    `INSERT INTO rng_enrollment (user_id, course_id) 
+                VALUES ("${ID}" , "${course_id}")`
+  );
+
+  res.redirect('/courses')
 }
