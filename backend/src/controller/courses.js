@@ -20,7 +20,7 @@ module.exports.createCourse = async (req, res) => {
   res.redirect('/courses')
 };
 
-module.exports.enrollCourse = (req, res) => {
+module.exports.enrollCourse = async (req, res) => {
   const user = req.session.user;
   const ID = user.user_id;
   const code = req.body.code;

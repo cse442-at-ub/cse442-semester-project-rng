@@ -18,7 +18,6 @@ router.get('/courses/create', auth.isLoggedIn, (req, res) => {
 router.post('/courses/enroll', auth.isLoggedIn, CoursesController.enrollCourse);
 
 router.get('/courses/enroll', auth.isLoggedIn, (req, res) => {
-  
   res.render('enroll_course')
 })
 
