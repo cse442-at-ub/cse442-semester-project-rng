@@ -12,6 +12,10 @@ router.post(
   DiscussionController.postDiscussion
 );
 
+router.get('/discussion/create', auth.isLoggedIn, (req, res) => {
+  res.render('create_discussion');
+});
+
 router.get('/discussion/:discussionID', auth.isLoggedIn, async (req, res) => {
   const user = req.session.user;
 
