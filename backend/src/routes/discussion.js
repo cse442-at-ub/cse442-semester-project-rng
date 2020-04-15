@@ -19,6 +19,17 @@ router.get(
     const user = req.session.user;
     const courseID = req.params.courseID;
 
+    const [
+      courseQueryResult,
+    ] = await connection.execute(
+      'SELECT * FROM `rng_courses` where `course_id` = ?',
+      [courseID]
+    );
+
+    if (courseQueryResult.length === 0) {
+      return res.send('There is no course with that ID');
+    }
+
     if (await !utils.isEnrolled(user, courseID)) {
       return res.send('You are not enrolled in this course');
     }

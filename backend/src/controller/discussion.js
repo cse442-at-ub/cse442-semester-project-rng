@@ -2,7 +2,6 @@ const mysql = require('../database/mysql');
 const bodyParser = require('body-parser');
 
 module.exports.postDiscussion = async (req, res) => {
-
   //https://stackoverflow.com/questions/5129624/convert-js-date-time-to-mysql-datetime
   let date = new Date().toISOString().slice(0, 19).replace('T', ' ');
 

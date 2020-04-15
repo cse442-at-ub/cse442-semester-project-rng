@@ -9,6 +9,17 @@ router.get('/classroom/:courseID', auth.isLoggedIn, async (req, res) => {
   const connection = await mysql.getConnection();
   const courseID = req.params.courseID;
 
+  const [
+    courseQueryResult,
+  ] = await connection.execute(
+    'SELECT * FROM `rng_courses` where `course_id` = ?',
+    [courseID]
+  );
+
+  if (courseQueryResult.length === 0) {
+    return res.send('There is no course with that ID');
+  }
+
   if (await !utils.isEnrolled(user, courseID)) {
     return res.send(
       'You are not enrolled in this course. You cannot view the contents of this course'
@@ -24,7 +35,7 @@ router.get('/classroom/:courseID', auth.isLoggedIn, async (req, res) => {
 
   res.render('classroom', {
     userFullName: user.first_name + ' ' + user.last_name,
-    school: user.school,
+    courseName: courseQueryResult[0].course_name,
     discussions: discussionQueryResult,
     courseID,
   });
