@@ -24,10 +24,14 @@
         </div>
         <div id="main-content" class="wrapper">
             <div class="discusion-posts">
+                <% if(discussions.length === 0) { %>
+                <div class="">There are no discussions yet</div>
+                <% } else { %>
                 <% for(let i = 0; i < discussions.length; i++) { %>
                 <a class="discussion"
                     href="/discussion/<%= discussions[i].discussion_id %>"><%= discussions[i].title %></a>
                 <% } %>
+                <% }%>
             </div>
         </div>
         <div class="bottom-button-wrapper">
