@@ -15,7 +15,19 @@ router.get('/classroom/:courseID', auth.isLoggedIn, async (req, res) => {
     );
   }
 
-  res.render('classroom', { courseID });
+  const [
+    discussionQueryResult,
+  ] = await connection.execute(
+    'SELECT * FROM `rng_discussions` where `course_id` = ?',
+    [courseID]
+  );
+
+  res.render('classroom', {
+    userFullName: user.first_name + ' ' + user.last_name,
+    school: user.school,
+    discussions: discussionQueryResult,
+    courseID,
+  });
 });
 
 module.exports = router;

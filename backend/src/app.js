@@ -16,21 +16,23 @@ const PORT = 3000;
 const app = express();
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 
 app.use(
-    session({
-        secret: process.env.SESSION_SECRET,
-        resave: false,
-        saveUninitialized: false,
-        cookie: {
-            sameSite: 'lax',
-            httpOnly: true,
-            maxAge: 60 * 60 * 1000
-        }
-    })
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      sameSite: 'lax',
+      httpOnly: true,
+      maxAge: 60 * 60 * 1000,
+    },
+  })
 );
 
 app.set('views', path.join(__dirname, '../views'));

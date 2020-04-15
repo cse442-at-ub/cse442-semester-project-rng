@@ -12,9 +12,9 @@
         <div class="header">
             <div class="wrapper">
                 <div class="user-info">
-                    Water Polo
+                    <%= userFullName %>
                     <div class="school">
-                        State University of New York at Buffalo
+                        <%= school %>
                     </div>
                 </div>
                 <div class="back-button">
@@ -23,35 +23,17 @@
             </div>
         </div>
         <div id="main-content" class="wrapper">
-            <div class="sort-button-wrapper">
-                <select id="sort" class="round">
-                    <option value="volvo">Sort: Newest to Oldest</option>
-                    <option value="saab">Sort: Oldest to Newest</option>
-                    <option value="mercedes">Sort: Most Popular</option>
-                    <option value="audi">Sort: Least Popular</option>
-                </select>
-            </div>
             <div class="discusion-posts">
-                <div class="discussion" onclick="window.location.href = './discussion.html';">
-                    How do I code in HTML?!
-                </div>
-                <div class="discussion" onclick="window.location.href = './discussion.html';">
-                    Please! Struggling with PA1! HELP!
-                </div>
-                <div class="discussion" onclick="window.location.href = './discussion.html';">
-                    Someone forgot their laptop at Davis 302...
-                </div>
-                <div class="discussion" onclick="window.location.href = './discussion.html';">
-                    Best of Hertz's MEMES
-                </div>
-                <div class="discussion" onclick="window.location.href = './discussion.html';">
-                    Sprint 1 incoming... YIKES!
-                </div>
+                <% for(let i = 0; i < discussions.length; i++) { %>
+                <a class="discussion"
+                    href="/discussion/<%= discussions[i].discussion_id %>"><%= discussions[i].title %></a>
+                <% } %>
             </div>
-            <div class="bottom-button-wrapper">
-                <a class="fixed-btn fixed-right" href="/discussion/create/<%= courseID %>"> Create </a>
-                <div class="fixed-btn fixed-left"> CSE 442 </div>
-            </div>
+        </div>
+        <div class="bottom-button-wrapper">
+            <a class="fixed-btn fixed-right" href="/discussion/create/<%= courseID %>"> Create </a>
+            <div class="fixed-btn fixed-left"> CSE 442 </div>
+        </div>
         </div>
     </body>
 

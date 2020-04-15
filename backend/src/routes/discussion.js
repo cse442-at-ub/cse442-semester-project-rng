@@ -23,7 +23,11 @@ router.get(
       return res.send('You are not enrolled in this course');
     }
 
-    res.render('create_discussion', { courseID });
+    res.render('create_discussion', {
+      userFullName: user.first_name + ' ' + user.last_name,
+      school: user.school,
+      courseID,
+    });
   }
 );
 
@@ -56,10 +60,12 @@ router.get('/discussion/:discussionID', auth.isLoggedIn, async (req, res) => {
   );
   const title = discussion.title;
   const body = discussion.body;
+  const courseID = discussion.course_id;
 
   res.render('discussion', {
     userFullName: user.first_name + ' ' + user.last_name,
     school: user.school,
+    courseID,
     createdBy,
     formattedDate,
     title,

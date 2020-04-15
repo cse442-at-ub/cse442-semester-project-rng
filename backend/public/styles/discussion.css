@@ -1,5 +1,4 @@
 @media (min-width: 0px) {
-
   /* Mobile */
   * {
     margin: 0;
@@ -29,7 +28,7 @@
     display: flex;
   }
 
-  .header .wrapper>div {
+  .header .wrapper > div {
     width: 50%;
   }
 
@@ -194,30 +193,24 @@
   .comment-content {
     margin-top: 25px;
   }
-
 }
 
 @media (min-width: 481px) {
   /* Small Tablet */
-
 }
 
 @media (min-width: 768px) {
   /* Tablet */
-
 }
 
 @media (min-width: 1030px) {
   /* Small Desktop*/
-
 }
 
 @media (min-width: 1240px) {
   /* Desktop*/
-
 }
 
 @media (min-width: 1440px) {
   /* Large Desktop */
-
 }
