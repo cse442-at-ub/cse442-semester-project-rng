@@ -3,8 +3,8 @@ const bodyParser = require('body-parser');
 
 module.exports.postDiscussion = async (req, res) => {
 
+  //https://stackoverflow.com/questions/5129624/convert-js-date-time-to-mysql-datetime
   let date = new Date().toISOString().slice(0, 19).replace('T', ' ');
-  const created_on = date.toString();
 
   const user = req.session.user;
 
@@ -21,5 +21,5 @@ module.exports.postDiscussion = async (req, res) => {
                     "${title}" , "${body}")`
   );
 
-  res.send(`Inserted discussion into DB ${date}`);
+  res.redirect(`/classroom/${course_id}`);
 };
