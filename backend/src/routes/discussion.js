@@ -18,6 +18,7 @@ router.get(
   async (req, res) => {
     const user = req.session.user;
     const courseID = req.params.courseID;
+    const connection = await mysql.getConnection();
 
     const [
       courseQueryResult,
@@ -73,9 +74,16 @@ router.get('/discussion/:discussionID', auth.isLoggedIn, async (req, res) => {
   const body = discussion.body;
   const courseID = discussion.course_id;
 
+  const [
+    courseQueryResult,
+  ] = await connection.execute(
+    'SELECT * FROM `rng_courses` where `course_id` = ?',
+    [courseID]
+  );
+
   res.render('discussion', {
     userFullName: user.first_name + ' ' + user.last_name,
-    school: user.school,
+    courseName: courseQueryResult[0].course_name,
     courseID,
     createdBy,
     formattedDate,

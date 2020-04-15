@@ -40,9 +40,9 @@
     color: #fefefe;
   }
 
-  .user-info .school {
+  .user-info .course-name {
     font-size: 10px;
-    letter-spacing: 6px;
+    letter-spacing: 1px;
     font-weight: normal;
     font-family: Roboto;
   }
