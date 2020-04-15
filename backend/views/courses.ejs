@@ -36,7 +36,7 @@
                     Instructor Courses
                 </div>
                 <div class="courses">
-                    <% for(let i = 0; i < courses.length; i++) { %>
+                    <% for(let i = 0; i < instructorCourses.length; i++) { %>
                     <div class="card">
                         <div class="card-title">
                             <%= courses[i].course_name %>
@@ -53,6 +53,21 @@
                 <% } %>
                 <div class="title">
                     Enrolled Courses
+                </div>
+                <div class="courses">
+                    <% for(let i = 0; i < enrolledCourses.length; i++) { %>
+                    <div class="card">
+                        <div class="card-title">
+                            <%= enrolledCourses[i].course_name %>
+                        </div>
+                        <div class="term">
+                            Term: <%= enrolledCourses[i].course_term %>
+                        </div>
+                        <div class="instructors">
+                            Instructor: <%= enrolledCourses[i].instructor %>
+                        </div>
+                    </div>
+                    <% } %>
                 </div>
             </div>
         </div>
