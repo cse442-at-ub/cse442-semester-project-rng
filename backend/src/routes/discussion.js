@@ -12,9 +12,20 @@ router.post(
   DiscussionController.postDiscussion
 );
 
-router.get('/discussion/create', auth.isLoggedIn, (req, res) => {
-  res.render('create_discussion');
-});
+router.get(
+  '/discussion/create/:courseID',
+  auth.isLoggedIn,
+  async (req, res) => {
+    const user = req.session.user;
+    const courseID = req.params.courseID;
+
+    if (await !utils.isEnrolled(user, courseID)) {
+      return res.send('You are not enrolled in this course');
+    }
+
+    res.render('create_discussion', { courseID });
+  }
+);
 
 router.get('/discussion/:discussionID', auth.isLoggedIn, async (req, res) => {
   const user = req.session.user;

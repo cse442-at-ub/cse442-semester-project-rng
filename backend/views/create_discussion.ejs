@@ -24,7 +24,7 @@
         </div>
 
         <div class="wrapper">
-            <form action="/discussion/" method="POST">
+            <form action="/discussion/create/<%= courseID %>" method="POST">
                 <input type="text" class="discussion-title" name="title" placeholder="Enter a one line summary..." />
 
                 <textarea class="discussion-content" name="body" required></textarea>

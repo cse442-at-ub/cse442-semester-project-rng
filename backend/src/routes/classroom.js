@@ -15,7 +15,7 @@ router.get('/classroom/:courseID', auth.isLoggedIn, async (req, res) => {
     );
   }
 
-  res.render('classroom');
+  res.render('classroom', { courseID });
 });
 
 module.exports = router;
