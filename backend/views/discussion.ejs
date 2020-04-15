@@ -2,8 +2,8 @@
 <html>
 
     <head>
-        <link rel="stylesheet" type="text/css" href="./styles/normalize.css">
-        <link rel="stylesheet" type="text/css" href="./styles/discussion.css">
+        <link rel="stylesheet" type="text/css" href="/styles/normalize.css">
+        <link rel="stylesheet" type="text/css" href="/styles/discussion.css">
 
         <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
@@ -14,9 +14,9 @@
         <div class="header">
             <div class="wrapper">
                 <div class="user-info">
-                    John Doe
+                    <%= userFullName %>
                     <div class="school">
-                        State University of New York at Buffalo
+                        <%= school %>
                     </div>
                 </div>
                 <div class="back-button">
@@ -27,55 +27,21 @@
         <div class="discussion-wrapper">
             <div class="discussion-card">
                 <div class="discussion-title">
-                    HELLO WORLD!
+                    <%= title %>
                 </div>
                 <div class="discussion-header">
-                    <img class="avatar" src="./icons/user_male.png">
-                    <span class="discussion-author">John Doe</span>
-                    <span class="discussion-timestamp">Feburary 19th, 2020 10:30PM</span>
+                    <img class="avatar" src="../icons/user_male.png">
+                    <span class="discussion-author"> <%= createdBy %> </span>
+                    <span class="discussion-timestamp"> <%= formattedDate %> </span>
                 </div>
                 <div class="discussion-content">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor urna eget sem luctus, et
-                    eleifend mi venenatis. Pellentesque varius dui sit amet turpis consequat, ultrices tempus ipsum
-                    sollicitudin. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                    Aliquam elementum, arcu eget lobortis gravida, felis neque vehicula enim, vitae pharetra risus mi eu
-                    purus. Morbi euismod pellentesque auctor. Nam vulputate nisi nisl, ut pulvinar tortor luctus id. Sed
-                    vitae erat nec urna consectetur molestie. Quisque quam augue, aliquet et egestas in, venenatis sit
-                    amet sapien. Morbi aliquam augue a leo pellentesque accumsan. Nunc sit amet porta tellus, et luctus
-                    tortor.
+                    <%= body %>
                 </div>
             </div>
             <div class="comment-textbox-card">
                 <textarea class="comment-textbox" rows="5" cols="50"></textarea>
                 <div class="comment-bottom-row">
                     <a class="small-btn" href="#">Post Comment</a>
-                </div>
-            </div>
-            <div class="comment-section">
-                <div class="comment-card">
-                    <div class="comment-header">
-                        <img class="avatar" src="./icons/user_male.png">
-                        <span class="comment-author">John Doe</span>
-                        <span class="comment-timestamp">Feburary 19th, 2020 10:30PM</span>
-                    </div>
-                    <div class="comment-content">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor urna eget sem luctus, et
-                        eleifend mi venenatis. Pellentesque varius dui sit amet turpis consequat, ultrices tempus ipsum
-                        sollicitudin. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                        mus.
-                        Aliquam elementum, arcu eget lobortis gravida, felis neque vehicula enim, vitae pharetra risus
-                        mi eu
-                        purus. Morbi euismod pellentesque auctor. Nam vulputate nisi nisl, ut pulvinar tortor luctus id.
-                        Sed
-                        vitae erat nec urna consectetur molestie. Quisque quam augue, aliquet et egestas in, venenatis
-                        sit
-                        amet sapien. Morbi aliquam augue a leo pellentesque accumsan. Nunc sit amet porta tellus, et
-                        luctus
-                        tortor.
-                    </div>
-                    <div class="comment-bottom-row">
-                        <a class="small-btn" href="#">Reply</a>
-                    </div>
                 </div>
             </div>
         </div>

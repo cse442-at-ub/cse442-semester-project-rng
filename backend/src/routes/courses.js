@@ -75,6 +75,7 @@ router.get('/courses', auth.isLoggedIn, async (req, res) => {
   res.render('courses', {
     isInstructor,
     instructor,
+    userFullName: user.first_name + ' ' + user.last_name,
     school: user.school,
     instructorCourses: coursesQueryResult,
     enrolledCourses: enrolledCourses,
