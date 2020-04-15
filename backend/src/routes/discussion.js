@@ -7,7 +7,7 @@ const DiscussionController = require('../controller/discussion');
 const router = express.Router();
 
 router.post(
-  '/discussion',
+  '/discussion/create/:courseID',
   auth.isLoggedIn,
   DiscussionController.postDiscussion
 );
