@@ -20,7 +20,7 @@ router.get('/classroom/:courseID', auth.isLoggedIn, async (req, res) => {
     return res.send('There is no course with that ID');
   }
 
-  if (await !utils.isEnrolled(user, courseID)) {
+  if (!(await utils.isEnrolled(user, discussion.course_id))) {
     return res.send(
       'You are not enrolled in this course. You cannot view the contents of this course'
     );

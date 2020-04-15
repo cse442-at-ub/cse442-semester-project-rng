@@ -23,14 +23,14 @@ module.exports.isEnrolled = async (user, courseID) => {
   const [
     enrollmentQueryResult,
   ] = await connection.execute(
-    'SELECT * FROM `rng_enrollment` where `user_id` = ? AND`course_id` = ?',
+    'SELECT * FROM `rng_enrollment` where `user_id` = ? AND `course_id` = ?',
     [user.user_id, courseID]
   );
 
   const [
     instructorQueryResult,
   ] = await connection.execute(
-    'SELECT * FROM `rng_courses` where `instructor` = ? AND`course_id` = ?',
+    'SELECT * FROM `rng_courses` where `instructor` = ? AND `course_id` = ?',
     [user.user_id, courseID]
   );
 

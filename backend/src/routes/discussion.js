@@ -31,7 +31,7 @@ router.get(
       return res.send('There is no course with that ID');
     }
 
-    if (await !utils.isEnrolled(user, courseID)) {
+    if (!(await utils.isEnrolled(user, discussion.course_id))) {
       return res.send('You are not enrolled in this course');
     }
 
@@ -59,8 +59,7 @@ router.get('/discussion/:discussionID', auth.isLoggedIn, async (req, res) => {
   }
 
   const discussion = discussionQueryResult[0];
-
-  if (await !utils.isEnrolled(user, discussion.course_id)) {
+  if (!(await utils.isEnrolled(user, discussion.course_id))) {
     return res.send(
       'You are not enrolled in the course that this discussion is in'
     );
