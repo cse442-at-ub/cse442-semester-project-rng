@@ -24,17 +24,12 @@
         </div>
 
         <div class="wrapper">
-            <form>
-                <input type="text" class="discussion-title" name="disc-title"
-                    placeholder="Enter a one line summary..." />
+            <form action="/discussion/" method="POST">
+                <input type="text" class="discussion-title" name="title" placeholder="Enter a one line summary..." />
 
-                <textarea class="discussion-content"></textarea>
-
+                <textarea class="discussion-content" name="body" required></textarea>
+                <input class="submit-button" type="submit" value="Submit">
             </form>
-
-            <div class="submit-button">
-                <a href="">Submit</a>
-            </div>
         </div>
     </body>
 

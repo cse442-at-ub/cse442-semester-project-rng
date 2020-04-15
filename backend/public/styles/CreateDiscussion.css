@@ -78,12 +78,7 @@
   }
 
   .submit-button {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-
-  .submit-button a {
+    display: block;
     background-color: white;
     padding: 15px 25px;
     text-decoration: none;
@@ -94,7 +89,7 @@
     transition: 0.5s all;
   }
 
-  .submit-button a:hover {
+  .submit-button:hover {
     color: white;
     background-color: #06253b;
     border: 1px solid #eee;
