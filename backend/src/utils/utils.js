@@ -27,7 +27,17 @@ module.exports.isEnrolled = async (user, courseID) => {
     [user.user_id, courseID]
   );
 
-  if (enrollmentQueryResult.length === 0) {
+  const [
+    instructorQueryResult,
+  ] = await connection.execute(
+    'SELECT * FROM `rng_courses` where `instructor` = ? AND`course_id` = ?',
+    [user.user_id, courseID]
+  );
+
+  if (
+    enrollmentQueryResult.length === 0 &&
+    instructorQueryResult.length === 0
+  ) {
     return false;
   }
 

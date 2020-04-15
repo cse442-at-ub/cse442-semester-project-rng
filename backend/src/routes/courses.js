@@ -62,6 +62,7 @@ router.get('/courses', auth.isLoggedIn, async (req, res) => {
     );
 
     const enrolledCourse = {
+      course_id: courseQueryResult[0].course_id,
       course_name: courseQueryResult[0].course_name,
       course_term: courseQueryResult[0].course_term,
       instructor:
