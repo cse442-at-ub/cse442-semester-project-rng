@@ -50,6 +50,17 @@ module.exports.enrollCourse = async (req, res) => {
     return res.send('You are already enrolled in the course');
   }
 
+  const [
+    instructorQueryResult,
+  ] = await connection.execute(
+    'SELECT * FROM `rng_courses` where `instructor` = ?',
+    [ID]
+  );
+
+  if (instructorQueryResult.length !== 0) {
+    return res.send('You cannot enroll in your own course');
+  }
+
   await connection.execute(
     `INSERT INTO rng_enrollment (user_id, course_id) 
                 VALUES ("${ID}" , "${course_id}")`
