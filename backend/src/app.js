@@ -9,26 +9,30 @@ const registerRoute = require('./routes/register');
 const loginRoute = require('./routes/login');
 const coursesRoute = require('./routes/courses');
 const logoutRoute = require('./routes/logout');
+const discussionRoute = require('./routes/discussion');
+const classroomRoute = require('./routes/classroom');
 
 const PORT = 3000;
 const app = express();
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 
 app.use(
-    session({
-        secret: process.env.SESSION_SECRET,
-        resave: false,
-        saveUninitialized: false,
-        cookie: {
-            sameSite: 'lax',
-            httpOnly: true,
-            maxAge: 60 * 60 * 1000
-        }
-    })
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      sameSite: 'lax',
+      httpOnly: true,
+      maxAge: 60 * 60 * 1000,
+    },
+  })
 );
 
 app.set('views', path.join(__dirname, '../views'));
@@ -39,7 +43,9 @@ app.use(activateRoute);
 app.use(registerRoute);
 app.use(loginRoute);
 app.use(coursesRoute);
-app.use(logoutRoute)
+app.use(logoutRoute);
+app.use(discussionRoute);
+app.use(classroomRoute);
 
 app.listen(PORT);
 console.log('Listening on port ' + PORT);

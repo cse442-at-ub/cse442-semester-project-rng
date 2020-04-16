@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link href="/styles/classroom.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+        <title>Classroom</title>
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="wrapper">
+                <div class="user-info">
+                    <%= userFullName %>
+                    <div class="course-name">
+                        <%= courseName %>
+                    </div>
+                </div>
+                <div class="back-button">
+                    <a href="/courses">Back</a>
+                </div>
+            </div>
+        </div>
+        <div id="main-content" class="wrapper">
+            <div class="discusion-posts">
+                <% if(discussions.length === 0) { %>
+                <div class="">There are no discussions yet</div>
+                <% } else { %>
+                <% for(let i = 0; i < discussions.length; i++) { %>
+                <a class="discussion"
+                    href="/discussion/<%= discussions[i].discussion_id %>"><%= discussions[i].title %></a>
+                <% } %>
+                <% }%>
+            </div>
+        </div>
+        <div class="bottom-button-wrapper">
+            <a class="fixed-btn fixed-right" href="/discussion/create/<%= courseID %>"> Create </a>
+        </div>
+    </body>
+
+</html>
