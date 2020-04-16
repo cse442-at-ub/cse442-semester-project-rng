@@ -2,8 +2,8 @@
 <html>
 
     <head>
-        <link rel="stylesheet" type="text/css" href="./styles/normalize.css">
-        <link rel="stylesheet" type="text/css" href="./styles/courses.css">
+        <link rel="stylesheet" type="text/css" href="/styles/normalize.css">
+        <link rel="stylesheet" type="text/css" href="/styles/courses.css">
 
         <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
         <div class="header">
             <div class="wrapper">
                 <div class="user-info">
-                    RNG
+                    <%= userFullName %>
                     <div class="school">
                         <%= school %>
                     </div>
@@ -25,7 +25,7 @@
                 </div>
                 <% } %>
                 <div class="new-class" type="button">
-                    <a href="/courses/add">Add a Course</a>
+                    <a href="/courses/enroll">Add a Course</a>
                 </div>
             </div>
         </div>
@@ -36,23 +36,42 @@
                     Instructor Courses
                 </div>
                 <div class="courses">
-                    <% for(let i = 0; i < courses.length; i++) { %>
+                    <% for(let i = 0; i < instructorCourses.length; i++) { %>
                     <div class="card">
                         <div class="card-title">
-                            <%= courses[i].course_name %>
+                            <%= instructorCourses[i].course_name %>
                         </div>
                         <div class="term">
-                            Term: <%= courses[i].course_term %>
+                            Term: <%= instructorCourses[i].course_term %>
                         </div>
                         <div class="access-code">
-                            Course Code: <%= courses[i].course_id %>
+                            Course Code: <%= instructorCourses[i].course_id %>
                         </div>
+                        
+                        <a href="./classroom/<%= instructorCourses[i].course_id %>" class="fill"></a>
                     </div>
                     <% } %>
                 </div>
                 <% } %>
                 <div class="title">
                     Enrolled Courses
+                </div>
+                <div class="courses">
+                    <% for(let i = 0; i < enrolledCourses.length; i++) { %>
+                    <div class="card">
+                        <div class="card-title">
+                            <%= enrolledCourses[i].course_name %>
+                        </div>
+                        <div class="term">
+                            Term: <%= enrolledCourses[i].course_term %>
+                        </div>
+                        <div class="instructors">
+                            Instructor: <%= enrolledCourses[i].instructor %>
+                        </div>
+                        
+                        <a href="./classroom/<%= enrolledCourses[i].course_id %>" class="fill"></a>
+                    </div>
+                    <% } %>
                 </div>
             </div>
         </div>

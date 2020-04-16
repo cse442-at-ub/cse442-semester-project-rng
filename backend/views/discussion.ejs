@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="/styles/normalize.css">
+        <link rel="stylesheet" type="text/css" href="/styles/discussion.css">
+
+        <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+        <title>Discussion</title>
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="wrapper">
+                <div class="user-info">
+                    <%= userFullName %>
+                    <div class="course-name">
+                        <%= courseName %>
+                    </div>
+                </div>
+                <div class="back-button">
+                    <a href="/classroom/<%= courseID %>">Back</a>
+                </div>
+            </div>
+        </div>
+        <div class="discussion-wrapper">
+            <div class="discussion-card">
+                <div class="discussion-title">
+                    <%= title %>
+                </div>
+                <div class="discussion-header">
+                    <img class="avatar" src="../icons/user_male.png">
+                    <span class="discussion-author"> <%= createdBy %> </span>
+                    <span class="discussion-timestamp"> <%= formattedDate %> </span>
+                </div>
+                <div class="discussion-content">
+                    <%= body %>
+                </div>
+            </div>
+            <div class="comment-textbox-card">
+                <textarea class="comment-textbox" rows="5" cols="50"></textarea>
+                <div class="comment-bottom-row">
+                    <a class="small-btn" href="#">Post Comment</a>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
