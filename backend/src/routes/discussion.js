@@ -31,7 +31,7 @@ router.get(
       return res.send('There is no course with that ID');
     }
 
-    if (!(await utils.isEnrolled(user, discussion.course_id))) {
+    if (!(await utils.isEnrolled(user, courseID))) {
       return res.send('You are not enrolled in this course');
     }
 
