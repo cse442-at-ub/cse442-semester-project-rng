@@ -11,6 +11,7 @@ const coursesRoute = require('./routes/courses');
 const logoutRoute = require('./routes/logout');
 const discussionRoute = require('./routes/discussion');
 const classroomRoute = require('./routes/classroom');
+const commentDeleteRoute = require('./routes/commentDelete');
 
 const PORT = 3000;
 const app = express();
@@ -46,6 +47,7 @@ app.use(coursesRoute);
 app.use(logoutRoute);
 app.use(discussionRoute);
 app.use(classroomRoute);
+app.use(commentDeleteRoute);
 
 app.listen(PORT);
 console.log('Listening on port ' + PORT);
