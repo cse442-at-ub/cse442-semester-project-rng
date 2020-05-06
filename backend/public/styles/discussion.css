@@ -193,6 +193,10 @@
   .comment-content {
     margin-top: 25px;
   }
+
+  .comment-section {
+    margin-bottom: 50px;
+  }
 }
 
 @media (min-width: 481px) {

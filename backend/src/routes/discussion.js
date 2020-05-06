@@ -80,6 +80,27 @@ router.get('/discussion/:discussionID', auth.isLoggedIn, async (req, res) => {
     [courseID]
   );
 
+  const [
+    commentsQuery,
+  ] = await connection.execute(
+    'SELECT * FROM `rng_comments` where `discussion_id` = ?',
+    [req.params.discussionID]
+  );
+
+  let comments = [];
+  for (let i = 0; i < commentsQuery.length; i++) {
+    const comment = commentsQuery[i];
+    const newComment = {
+      commentID: comment.comment_id,
+      courseID: comment.course_id,
+      discusisonID: comment.discussion_id,
+      created_by: await utils.getFullNameFromID(comment.created_by),
+      created_on: moment(comment.created_on).format('MMMM Do YYYY, h:mm:ss a'),
+      body: comment.body,
+    };
+    comments.push(newComment);
+  }
+
   res.render('discussion', {
     userFullName: user.first_name + ' ' + user.last_name,
     courseName: courseQueryResult[0].course_name,
@@ -88,6 +109,7 @@ router.get('/discussion/:discussionID', auth.isLoggedIn, async (req, res) => {
     formattedDate,
     title,
     body,
+    comments,
   });
 });
 
