@@ -2,49 +2,35 @@
 <html>
 
     <head>
-        <link href="../public/styles/EditComment.css" rel="stylesheet">
+        <link href="/styles/CreateDiscussion.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
         <title>Create Discussion</title>
-
-        <style>
-            input[type=text] {
-                width: 80%;
-                padding: 12px;
-                margin: 8px 0;
-                box-sizing: border-box;
-            }
-        </style>
     </head>
 
     <body>
         <div class="header">
             <div class="wrapper">
                 <div class="user-info">
-                    Ayoub
+                    <%= userFullName %>
                     <div class="school">
-                        State University of New York at Buffalo
+                        <%= school %>
                     </div>
                 </div>
                 <div class="back-button">
-                    <a href="./discussion.html">Back</a>
+                    <a href="/discussion/<%= discussionID %>">Back</a>
                 </div>
             </div>
         </div>
 
         <div class="wrapper">
-            <form>
-                <textarea id="comment-area"
-                rows="20"
-                cols="112">
-                </textarea>
-
+            <form action="/comment/edit/<%= commentID %>" method="POST">
+                <input type="hidden" name="discussionID" value="<%= discussionID %>">
+                <input type="hidden" name="commentID" value="<%= commentID %>">
+                <textarea class="discussion-content" name="body" required></textarea>
+                <input class="submit-button" type="submit" value="EDIT COMMENT">
             </form>
-
-            <div class="submit-button">
-                <a href="">Edit</a>
-            </div>
-
         </div>
     </body>
+
 </html>

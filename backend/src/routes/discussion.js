@@ -93,7 +93,7 @@ router.get('/discussion/:discussionID', auth.isLoggedIn, async (req, res) => {
     const newComment = {
       commentID: comment.comment_id,
       courseID: comment.course_id,
-      discusisonID: comment.discussion_id,
+      discussionID: comment.discussion_id,
       created_by: await utils.getFullNameFromID(comment.created_by),
       created_on: moment(comment.created_on).format('MMMM Do YYYY, h:mm:ss a'),
       body: comment.body,

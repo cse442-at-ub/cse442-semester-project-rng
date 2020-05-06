@@ -48,3 +48,18 @@ module.exports.deleteComment = async (req, res) => {
 
   res.redirect(referer.substring(21, referer.length));
 };
+
+module.exports.editComment = async (req, res) => {
+  const commentID = req.body.commentID;
+  const discussionID = req.body.discussionID;
+  const body = req.body.body;
+
+  const connection = await mysql.getConnection();
+
+  await connection.execute(
+    'UPDATE `rng_comments` SET body=? WHERE comment_id=?',
+    [body, commentID]
+  );
+
+  res.redirect('/discussion/' + discussionID);
+};
