@@ -19,13 +19,15 @@
                         <%= school %>
                     </div>
                 </div>
-                <% if(isInstructor) { %>
-                <div class="new-class" type="button">
-                    <a href="/courses/create">Create Course</a>
-                </div>
-                <% } %>
-                <div class="new-class" type="button">
-                    <a href="/courses/enroll">Add a Course</a>
+                <div class="button-wrapper">
+                    <% if(isInstructor) { %>
+                    <div class="new-class" type="button">
+                        <a href="/courses/create">Create Course</a>
+                    </div>
+                    <% } %>
+                    <div class="new-class" type="button">
+                        <a href="/courses/enroll">Add a Course</a>
+                    </div>
                 </div>
             </div>
         </div>

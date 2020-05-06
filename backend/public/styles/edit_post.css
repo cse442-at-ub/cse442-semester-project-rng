@@ -31,6 +31,15 @@
     .header .wrapper > div {
         width: 50%;
     }
+
+    .header .button-wrapper {
+      display: flex;
+      justify-content: flex-end;
+    }
+  
+    .header .button-wrapper > div {
+      padding-left: 2em;
+    }
     
     .user-info {
         font-size: 25px;
