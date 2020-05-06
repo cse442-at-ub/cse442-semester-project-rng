@@ -65,7 +65,7 @@
                             <input type="hidden" name="commentID" value="<%= comments[i].commentID %>">
                             <input class="small-btn" type="submit" value="Delete">
                         </form>
-                        <a class="small-btn" href="#">Edit</a>
+                        <a class="small-btn" href="/comment/edit/<%= comments[i].commentID %>">Edit</a>
                     </div>
                 </div>
                 <%} %>
