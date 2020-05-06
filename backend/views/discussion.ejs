@@ -58,34 +58,16 @@
                         <%= comments[i].body %>
                     </div>
                     <div class="comment-bottom-row">
+                        <form action="/comment/delete" method="POST">
+                            <input type="hidden" name="commentID" value="<%= comments[i].commentID %>">
+                            <input class="small-btn" type="submit" value="Delete">
+                        </form>
                         <a class="small-btn" href="#">Reply</a>
                     </div>
                 </div>
                 <%} %>
             </div>
         </div>
-
-        <!-- basic structure for comments with added delete button-->
-        <br/>
-        <div class="comment-wrapper">
-            <div class="comment-card">
-                <div class="comment-title">
-                    <%= title %>
-                </div>
-                <div class="comment-header">
-                    <img class="avatar" src="../icons/user_male.png">
-                    <span class="comment-author"> <%= createdBy %> </span>
-                    <span class="comment-timestamp"> <%= formattedDate %> </span>
-                </div>
-                <div class="comment-content">
-                    <%= body %>
-                </div>
-            </div>
-            <div class="delete-bottom-row">
-                <a class="small-btn" href="/comment/delete/commentID:">Delete</a>
-            </div>
-        </div>
-
     </body>
 
 </html>

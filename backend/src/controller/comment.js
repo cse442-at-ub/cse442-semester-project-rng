@@ -32,6 +32,19 @@ module.exports.postComment = async (req, res) => {
                     VALUES ("${course_id}" , "${user_id}" , "${date}" , 
                     "${discussion_id}" , "${body}")`
   );
-  console.log(referer.substring(21, referer.length));
+
+  res.redirect(referer.substring(21, referer.length));
+};
+
+module.exports.deleteComment = async (req, res) => {
+  const referer = req.headers.referer;
+  const comment_to_delete = req.body.commentID;
+
+  const connection = await mysql.getConnection();
+
+  await connection.execute(
+    `DELETE FROM rng_comments WHERE comment_id=${comment_to_delete}`
+  );
+
   res.redirect(referer.substring(21, referer.length));
 };
