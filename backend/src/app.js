@@ -11,11 +11,8 @@ const coursesRoute = require('./routes/courses');
 const logoutRoute = require('./routes/logout');
 const discussionRoute = require('./routes/discussion');
 const classroomRoute = require('./routes/classroom');
-<<<<<<< HEAD
 const commentRoute = require('./routes/comment');
-=======
 const commentDeleteRoute = require('./routes/commentDelete');
->>>>>>> 2b6bc063a8acbbe106829fcce588ffec8bd4ad74
 
 const PORT = 3000;
 const app = express();
