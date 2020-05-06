@@ -1,8 +1,11 @@
 const mysql2 = require('mysql2/promise');
 
-class MySQL {
-  constructor() {
-    this.connection = mysql2.createPool({
+let connection;
+console.log('REQUIRE MYSQL');
+
+module.exports.getConnection = async () => {
+  if (!connection) {
+    connection = mysql2.createPool({
       connectionLimit: 10,
       host: process.env.DB_HOST,
       user: process.env.DB_USERNAME,
@@ -10,13 +13,5 @@ class MySQL {
       database: process.env.DB_NAME,
     });
   }
-}
-
-let mysql;
-
-module.exports.getConnection = async () => {
-  if (!mysql) {
-    mysql = new MySQL();
-  }
-  return mysql.connection;
+  return connection;
 };
