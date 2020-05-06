@@ -39,10 +39,12 @@
                 </div>
             </div>
             <div class="comment-textbox-card">
-                <textarea class="comment-textbox" rows="5" cols="50"></textarea>
-                <div class="comment-bottom-row">
-                    <a class="small-btn" href="#">Post Comment</a>
-                </div>
+                <form action="/comment/post" method="POST">
+                    <textarea class="comment-textbox" name="body"></textarea>
+                    <div class="comment-bottom-row">
+                        <input class="small-btn" type="submit" value="Post Comment">
+                    </div>
+                </form>
             </div>
             <div class="comment-section">
                 <% for(let i = 0; i < comments.length; i++) {%>
@@ -59,8 +61,8 @@
                         <a class="small-btn" href="#">Reply</a>
                     </div>
                 </div>
+                <%} %>
             </div>
-            <%} %>
         </div>
     </body>
 

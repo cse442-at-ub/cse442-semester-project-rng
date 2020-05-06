@@ -9,20 +9,29 @@ module.exports.postComment = async (req, res) => {
     -2
   )}:${('0' + d.getSeconds()).slice(-2)}`;
 
-  //const user = req.session.user;
-  const referer = req.headers.referer;
-  //const course_id = req.params.courseID;
-  //const user_id = user.user_id;
-  //const discussion_id = req.body.discussionID;
-  const body = req.body.body;
-
   const connection = await mysql.getConnection();
+
+  const user = req.session.user;
+  const referer = req.headers.referer;
+  const user_id = user.user_id;
+  const discussion_id = referer.split('/')[4];
+
+  const [
+    discussionQueryResult,
+  ] = await connection.execute(
+    'SELECT * FROM `rng_discussions` where `discussion_id` = ?',
+    [discussion_id]
+  );
+
+  const discussion = discussionQueryResult[0];
+  const course_id = discussion.course_id;
+  const body = req.body.body;
 
   await connection.execute(
     `INSERT INTO rng_comments (course_id, created_by, created_on, discussion_id, body) 
-                    VALUES ("7" , "18" , "${date}" , 
-                    "26" , "${body}")`
+                    VALUES ("${course_id}" , "${user_id}" , "${date}" , 
+                    "${discussion_id}" , "${body}")`
   );
-
-  res.send('Inserted Comment into Database');
+  console.log(referer.substring(21, referer.length));
+  res.redirect(referer.substring(21, referer.length));
 };

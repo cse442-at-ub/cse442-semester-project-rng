@@ -101,8 +101,6 @@ router.get('/discussion/:discussionID', auth.isLoggedIn, async (req, res) => {
     comments.push(newComment);
   }
 
-  console.log(comments);
-
   res.render('discussion', {
     userFullName: user.first_name + ' ' + user.last_name,
     courseName: courseQueryResult[0].course_name,
