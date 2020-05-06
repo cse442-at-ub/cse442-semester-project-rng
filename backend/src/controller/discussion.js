@@ -29,27 +29,17 @@ module.exports.postDiscussion = async (req, res) => {
 };
 
 module.exports.editDiscussion = async (req, res) => {
-  let d = new Date();
-
-  let date = `${d.getFullYear()}-${('0' + (d.getMonth() + 1)).slice(-2)}-${(
-    '0' + d.getDate()
-  ).slice(-2)} ${('0' + d.getHours()).slice(-2)}:${('0' + d.getMinutes()).slice(
-    -2
-  )}:${('0' + d.getSeconds()).slice(-2)}`;
-
   const user = req.session.user;
 
-  const course_id = req.params.courseID;
-  const user_id = user.user_id;
+  const discussionID = req.body.discussionID;
   const title = req.body.title;
   const body = req.body.body;
 
   const connection = await mysql.getConnection();
 
   await connection.execute(
-    `UPDATE rng_discussions SET (body), WHERE (discussion_id) 
-                    VALUES ("${body}" , "${discussion_id}")`
+    `UPDATE rng_discussions SET title="${title}", body="${body}" WHERE discussion_id=${discussionID}`
   );
 
-  res.redirect(`/classroom/${course_id}`);
+  res.redirect('/discussion/' + discussionID);
 };

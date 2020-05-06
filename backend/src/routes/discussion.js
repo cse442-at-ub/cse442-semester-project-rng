@@ -102,6 +102,7 @@ router.get('/discussion/:discussionID', auth.isLoggedIn, async (req, res) => {
   }
 
   res.render('discussion', {
+    discussionID: req.params.discussionID,
     userFullName: user.first_name + ' ' + user.last_name,
     courseName: courseQueryResult[0].course_name,
     courseID,
@@ -112,5 +113,35 @@ router.get('/discussion/:discussionID', auth.isLoggedIn, async (req, res) => {
     comments,
   });
 });
+
+router.get(
+  '/discussion/edit/:discussionID',
+  auth.isLoggedIn,
+  async (req, res) => {
+    const user = req.session.user;
+    const connection = await mysql.getConnection();
+    const [
+      discussionQueryResult,
+    ] = await connection.execute(
+      'SELECT * FROM `rng_discussions` where `discussion_id` = ?',
+      [req.params.discussionID]
+    );
+
+    const discussion = discussionQueryResult[0];
+
+    res.render('edit_post', {
+      userFullName: user.first_name + ' ' + user.last_name,
+      school: user.school,
+      discussionID: req.params.discussionID,
+      title: discussion.title,
+      body: discussion.body,
+    });
+  }
+);
+
+router.post(
+  '/discussion/edit/:discussionID',
+  DiscussionController.editDiscussion
+);
 
 module.exports = router;
