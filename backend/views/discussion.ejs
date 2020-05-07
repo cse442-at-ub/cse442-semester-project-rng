@@ -37,9 +37,11 @@
                 <div class="discussion-content">
                     <%= body %>
                 </div>
+                <% if(isYourPost) {%>
                 <div class="edit-button">
                     <a href="/discussion/edit/<%= discussionID %>">Edit</a>
                 </div>
+                <%}%>
             </div>
             <div class="comment-textbox-card">
                 <form action="/comment/post" method="POST">
@@ -60,6 +62,7 @@
                     <div class="comment-content">
                         <%= comments[i].body %>
                     </div>
+                    <%if(comments[i].isYourComment) {%>
                     <div class="comment-bottom-row">
                         <form action="/comment/delete" method="POST">
                             <input type="hidden" name="commentID" value="<%= comments[i].commentID %>">
@@ -67,10 +70,11 @@
                         </form>
                         <a class="small-btn" href="/comment/edit/<%= comments[i].commentID %>">Edit</a>
                     </div>
+                    <%}%>
                 </div>
                 <%} %>
+                </div>
             </div>
-        </div>
     </body>
 
 </html>

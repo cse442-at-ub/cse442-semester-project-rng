@@ -97,6 +97,7 @@ router.get('/discussion/:discussionID', auth.isLoggedIn, async (req, res) => {
       created_by: await utils.getFullNameFromID(comment.created_by),
       created_on: moment(comment.created_on).format('MMMM Do YYYY, h:mm:ss a'),
       body: comment.body,
+      isYourComment: comment.created_by === user.user_id,
     };
     comments.push(newComment);
   }
@@ -111,6 +112,7 @@ router.get('/discussion/:discussionID', auth.isLoggedIn, async (req, res) => {
     title,
     body,
     comments,
+    isYourPost: discussion.created_by === user.user_id,
   });
 });
 
