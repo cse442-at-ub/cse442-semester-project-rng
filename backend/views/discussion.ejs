@@ -19,8 +19,16 @@
                         <%= courseName %>
                     </div>
                 </div>
-                <div class="back-button">
-                    <a href="/classroom/<%= courseID %>">Back</a>
+                <div class="button-wrapper">
+                    <div class="back-button">
+                        <a href="/profile">Profile</a>
+                    </div>
+                    <div class="back-button">
+                        <a href="/courses">My courses</a>
+                    </div>
+                    <div class="back-button">
+                        <a href="/classroom/<%= courseID %>">Back</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -37,14 +45,44 @@
                 <div class="discussion-content">
                     <%= body %>
                 </div>
+                <% if(isYourPost) {%>
+                <div class="edit-button">
+                    <a href="/discussion/edit/<%= discussionID %>">Edit</a>
+                </div>
+                <%}%>
             </div>
             <div class="comment-textbox-card">
-                <textarea class="comment-textbox" rows="5" cols="50"></textarea>
-                <div class="comment-bottom-row">
-                    <a class="small-btn" href="#">Post Comment</a>
+                <form action="/comment/post" method="POST">
+                    <textarea class="comment-textbox" name="body"></textarea>
+                    <div class="comment-bottom-row">
+                        <input class="small-btn" type="submit" value="Post Comment">
+                    </div>
+                </form>
+            </div>
+            <div class="comment-section">
+                <% for(let i = 0; i < comments.length; i++) {%>
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <img class="avatar" src="../icons/user_male.png">
+                        <span class="comment-author"><%= comments[i].created_by %></span>
+                        <span class="comment-timestamp"><%= comments[i].created_on %></span>
+                    </div>
+                    <div class="comment-content">
+                        <%= comments[i].body %>
+                    </div>
+                    <%if(comments[i].isYourComment) {%>
+                    <div class="comment-bottom-row">
+                        <form action="/comment/delete" method="POST">
+                            <input type="hidden" name="commentID" value="<%= comments[i].commentID %>">
+                            <input class="small-btn" type="submit" value="Delete">
+                        </form>
+                        <a class="small-btn" href="/comment/edit/<%= comments[i].commentID %>">Edit</a>
+                    </div>
+                    <%}%>
+                </div>
+                <%} %>
                 </div>
             </div>
-        </div>
     </body>
 
 </html>

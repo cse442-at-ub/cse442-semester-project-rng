@@ -1,0 +1,147 @@
+@media (min-width: 0px) {
+    /* Mobile */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        color: #202124;
+        background-color: #f8f8ff;
+        letter-spacing: 0.25px;
+    }
+    
+    .header {
+        width: 100%;
+        height: 125px;
+        background-color: #06253b;
+        margin: 0 0 50px 0;
+        display: flex;
+        align-items: center;
+        color: white;
+        font-family: 'Anton';
+    }
+    
+    .header .wrapper {
+        display: flex;
+    }
+    
+    .header .wrapper > div {
+        width: 100%;
+    }
+    
+    .user-info {
+        font-size: 25px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        color: #fefefe;
+    }
+    
+    .user-info .school {
+        font-size: 10px;
+        letter-spacing: 6px;
+        font-weight: normal;
+        font-family: Roboto;
+    }
+    
+    .header .new-class {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .header .new-class a {
+        background-color: white;
+        padding: 15px 25px;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #06253b;
+        border-radius: 2px;
+        border: 1px solid #06253b;
+        transition: 0.5s all;
+    }
+    
+    .header .new-class a:hover {
+        color: white;
+        background-color: #06253b;
+        border: 1px solid #eee;
+    }
+    
+    .wrapper {
+        width: 100%;
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 450px;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+      }
+      
+      .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      }
+
+      .title {
+        color: black;
+        text-align: center;
+        font-size: 18px;
+      }
+      
+      button {
+        border: 1px solid black;
+        border-radius: 1px;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #06253b;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 20px;
+        font-weight: 300;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+            
+      button:hover {
+        background-color: #fff;
+        color: #06253b;
+      }
+
+}
+
+@media (min-width: 481px) {
+    /* Small Tablet */
+    
+}
+
+@media (min-width: 768px) {
+    /* Tablet */
+    
+}
+
+@media (min-width: 1030px) {
+    /* Small Desktop */
+    
+}
+
+@media (min-width: 1240px) {
+    /* Desktop */
+    
+}
+
+@media (min-width: 1440px) {
+    /* Large Desktop */
+}
+
+
+
