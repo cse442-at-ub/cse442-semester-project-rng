@@ -12,7 +12,7 @@ const logoutRoute = require('./routes/logout');
 const discussionRoute = require('./routes/discussion');
 const classroomRoute = require('./routes/classroom');
 const commentRoute = require('./routes/comment');
-const classroomRoute = require('./routes/profile');
+const profileRoute = require('./routes/profile');
 
 const PORT = 3000;
 const app = express();

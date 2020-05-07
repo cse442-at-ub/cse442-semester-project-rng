@@ -23,14 +23,6 @@
                     <div class="new-class">
                         <a href="/courses">My courses</a>
                     </div>
-                    <% if(isInstructor) { %>
-                    <div class="new-class" type="button">
-                        <a href="/courses/create">Create Course</a>
-                    </div>
-                    <% } %>
-                    <div class="new-class" type="button">
-                        <a href="/courses/enroll">Add a Course</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -45,6 +37,8 @@
                     </br>
                     <p><%= school %></p>
                     </br>
+                    <p>Discussions Started: <%= discussionsStarted %></p>
+                    </br>
                 </div>
                 <div class="new-class" type="button">
                     <a href="/logout">Logout</a>
@@ -52,7 +46,5 @@
             </div>
         </div>
     </body>
+
 </html>
-
-
-
