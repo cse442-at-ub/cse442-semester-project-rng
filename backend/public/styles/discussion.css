@@ -129,6 +129,16 @@
     margin-top: 25px;
   }
 
+  .edit-button {
+    display: flex;
+    justify-content: right;
+    padding-top: 2px;
+  }
+
+  .edit-button a {
+    color: #06253b;
+  }
+
   .comment-textbox-card {
     margin-top: 50px;
     background-color: #ececec;
@@ -192,6 +202,10 @@
 
   .comment-content {
     margin-top: 25px;
+  }
+
+  .comment-section {
+    margin-bottom: 50px;
   }
 }
 

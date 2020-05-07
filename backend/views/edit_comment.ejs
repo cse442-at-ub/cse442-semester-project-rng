@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link href="/styles/CreateDiscussion.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+        <title>Create Discussion</title>
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="wrapper">
+                <div class="user-info">
+                    <%= userFullName %>
+                    <div class="school">
+                        <%= school %>
+                    </div>
+                </div>
+                <div class="back-button">
+                    <a href="/discussion/<%= discussionID %>">Back</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <form action="/comment/edit/<%= commentID %>" method="POST">
+                <input type="hidden" name="discussionID" value="<%= discussionID %>">
+                <input type="hidden" name="commentID" value="<%= commentID %>">
+                <textarea class="discussion-content" name="body" required></textarea>
+                <input class="submit-button" type="submit" value="EDIT COMMENT">
+            </form>
+        </div>
+    </body>
+
+</html>
